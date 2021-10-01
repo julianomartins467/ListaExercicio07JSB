@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="css/restom.css">
+    <style>
+        
+        
+        .principal{
+                     
+            display: inline-flex;
+            
+            padding-left: 250px;
+           
+            height: 450px;
+            align-items: center;
+            width: 100%;
+        }
+        .secundaria{
+            background-color: rgb(186, 241, 148);			
+            align-items: center;
+            text-align: center;
+            height: 280px;
+            margin: 2px;
+            padding-top: 15px;
+            padding-bottom: 20px;
+            width: 210px;
+            font-weight: bolder;
+            border: black solid 2px;       
+            
+        }
+        img:hover{
+            background-color: brown;
+        }
+        div.secundaria:hover{
+			background-color: rgb(75, 9, 9);
+			color: white;   
+ 		}
+.botao{
+    background-color: rgb(186, 241, 148);
+    align-items: center;
+    height: 40px;
+    width: 152;
+    text-align: center;
+    border-radius: 5px;
+    font-weight: bolder;
+    color: white;
+    font-size: 25px;
+
+}
+
+.txtVoto{
+    color: red;
+    font-size: 18px;
+	margin-top: -10px;
+}
+.title{
+    color: red;
+    font-size: 20px;
+	text-align: center;
+	margin-top: 0px;
+}
+
+
+
+    </style>
+    <script>
+    window.onload = function () {
+    let clickDiv1 = document.getElementById("divID1");
+	let clickDiv2 = document.getElementById("divID2");
+	let clickDiv3 = document.getElementById("divID3");
+	let clickDiv4 = document.getElementById("divID4");
+	
+    clickDiv1.onclick = incrementClick;
+	clickDiv2.onclick = incrementClick;
+	clickDiv3.onclick = incrementClick;
+	clickDiv4.onclick = incrementClick;
+	
+    let resetBtn = document.getElementById("reset-button");
+    resetBtn.onclick = resetCounter;
+    }
+    
+    var counterVal1 = 0;
+	var counterVal2 = 0;
+	var counterVal3 = 0;
+	var counterVal4 = 0;
+	
+
+incrementClick = function() {
+    //updateDisplay(++counterVal);
+	 //alert(typeof(this.id));
+	switch(this.id) {
+	  case "divID1":	    
+	    updateDisplay(1, ++counterVal1);
+	     break;
+	  case "divID2": 	    
+	    updateDisplay(2, ++counterVal2);
+	     break;
+	  case "divID3": 	   
+	    updateDisplay(3, ++counterVal3);
+	     break;
+	  case "divID4": 	   
+	    updateDisplay(4, ++counterVal4);
+	     break;
+	
+	}
+}
+
+function resetCounter() {
+    counterVal1 = 0;
+	counterVal2 = 0;
+	counterVal3 = 0;
+	counterVal4 = 0;
+    updateDisplay(1, counterVal1);
+	updateDisplay(2, counterVal2);
+	updateDisplay(3, counterVal3);
+	updateDisplay(4, counterVal4);
+}
+
+function updateDisplay(idx, val) {
+    document.getElementById("counter-label" + idx).innerHTML = val;
+}
+
+      
+  
+    </script>
+</head>
+<body>
+
+    <div class="principal col-dm-12 col-dg-12" >
+        <div class="title">
+		 Candidato 1
+        <div class="secundaria">Mickey
+            <div  onclick="votar()" id="divID1">
+                <img src="img/candidato1.jpg" height="200" width="145">
+                <p>Numero de votos</p>
+                <p class="txtVoto" id="counter-label1"></p>
+            </div>
+        </div>
+		</div>
+		<div class="title">
+		 Candidato 2
+        <div class="secundaria">Minnie
+            <div onclick="votar()" id="divID2">
+                <img src="img/candidato2.jpg" height="200" width="145">
+                <p>Numero de votos</p></div>
+                <p class="txtVoto" id="counter-label2">
+        </div>
+		</div>
+		<div class="title">
+		 Candidato 3
+			<div class="secundaria">Pateta
+				<div  oonclick="votar()" id="divID3">
+					<img src="img/candidato3.jpg" height="200" width="145">
+					<p class="numero">Numero de Votos</p>
+				</div>
+				<div class="txtVoto" id="counter-label3"></div>
+			</div>
+		</div>
+		<div class="title">
+		 Candidato 4
+        <div class="secundaria">Pluto
+             <div onclick="votar()" id="divID4">
+			    <img src="img/candidato4.jpg" height="200" width="145">
+                <p >Numero de votos</p></div>
+                <p class="txtVoto" id="counter-label4"></p>
+        </div>
+        </div>
+    </div>
+
+    </div>
+  <center> <button class="botao" id="reset-button">Zerar Votação</button></center> 
+</body>
+</html>
